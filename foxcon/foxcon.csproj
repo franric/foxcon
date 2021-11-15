@@ -129,6 +129,7 @@
     <Compile Include="Controllers\DepartamentoController.cs" />
     <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RelatorioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2290,6 +2291,7 @@
     <Content Include="Views\Funcionario\ListaDepartamentos.cshtml" />
     <Content Include="Views\Funcionario\Editar.cshtml" />
     <Content Include="Views\Funcionario\Detalhes.cshtml" />
+    <Content Include="Views\Relatorio\TotalSalario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

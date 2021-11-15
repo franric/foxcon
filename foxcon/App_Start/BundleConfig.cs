@@ -11,6 +11,7 @@ namespace foxcon
             bundles.Add(new ScriptBundle("~/Content/js").Include(
                        "~/Content/lte/plugins/jquery/jquery.min.js",
                        "~/Content/lte/plugins/bootstrap/js/bootstrap.bundle.min.js",
+                       "~/Content/lte/plugins/chart.js/Chart.min.js",
                        "~/Content/lte/dist/js/adminlte.min.js",
                        "~/Content/lte/dist/js/adminlte.min.js",
                        "~/Content/lte/dist/js/demo.js"));

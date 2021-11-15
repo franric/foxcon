@@ -25,7 +25,5 @@ namespace foxcon.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Departamentos> Departamentos { get; set; }
-        public DbSet<Employees> Employees { get; set; }
     }
 }

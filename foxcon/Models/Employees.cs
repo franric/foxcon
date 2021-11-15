@@ -12,19 +12,19 @@ namespace foxcon.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Employees
+    public partial class EMPLOYEES
     {
-        public int id { get; set; }
-        public int id_departamento { get; set; }
-        public string name { get; set; }
-        public decimal salary { get; set; }
-        public string gender { get; set; }
-        public string active { get; set; }
-        public Nullable<System.DateTime> created_at { get; set; }
-        public byte[] modified_at { get; set; }
+        public decimal ID { get; set; }
+        public decimal ID_DEPARTAMENTO { get; set; }
+        public string NAME { get; set; }
+        public string GENDER { get; set; }
+        public decimal SALARY { get; set; }
+        public string ACTIVE { get; set; }
+        public System.DateTime CREATED_AT { get; set; }
+        public System.DateTime MODFIELD_AT { get; set; }
     
-        public virtual Departamentos Departamentos { get; set; }
+        public virtual DEPARTAMENTOS DEPARTAMENTOS { get; set; }
 
-        public string nomeDepartamento { get; set; }
+        public string NOMEDEPARTAMENTO { get; set; }
     }
 }

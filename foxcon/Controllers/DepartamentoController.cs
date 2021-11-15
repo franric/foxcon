@@ -12,9 +12,9 @@ namespace foxcon.Controllers
         // GET: Departamento
         public ActionResult Index()
         {
-            using (foxEntitSql depList = new foxEntitSql())
+            using (foxEntitySql depList = new foxEntitySql())
             {
-                return View(depList.Departamentos.ToList());
+                return View(depList.DEPARTAMENTOS.ToList());
             }
         }
 
@@ -24,19 +24,20 @@ namespace foxcon.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Departamentos dep)
+        public ActionResult Create(DEPARTAMENTOS dep)
         {
             if (!ModelState.IsValid)
                 return View();
 
             try
             {
-                dep.active = "A";
-                dep.created_at = DateTime.Now;
+                dep.ACTIVE = "A";
+                dep.CREATED_AT = DateTime.Now;
+                dep.MODFIELD_AT = DateTime.Now;
 
-                using (var depCreate = new foxEntitSql())
+                using (var depCreate = new foxEntitySql())
                 {
-                    depCreate.Departamentos.Add(dep);
+                    depCreate.DEPARTAMENTOS.Add(dep);
                     depCreate.SaveChanges();
 
                     return RedirectToAction("Index");
@@ -53,9 +54,9 @@ namespace foxcon.Controllers
         {
             try
             {
-                using (var dbDepEdit = new foxEntitSql())
+                using (var dbDepEdit = new foxEntitySql())
                 {
-                    Departamentos depEdit  = dbDepEdit.Departamentos.Find(id);
+                    DEPARTAMENTOS depEdit  = dbDepEdit.DEPARTAMENTOS.Find(id);
 
                     return View(depEdit);
                 }
@@ -69,7 +70,7 @@ namespace foxcon.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Editar(Departamentos dep)
+        public ActionResult Editar(DEPARTAMENTOS dep)
         {
 
             if (!ModelState.IsValid)
@@ -77,11 +78,13 @@ namespace foxcon.Controllers
 
             try
             {
-                using (var dbDepEdit = new foxEntitSql())
+                using (var dbDepEdit = new foxEntitySql())
                 {
-                    Departamentos depEdit = dbDepEdit.Departamentos.Find(dep.id);
-                    depEdit.name = dep.name;
+                    DEPARTAMENTOS depEdit = dbDepEdit.DEPARTAMENTOS.Find(dep.ID);
                     
+                    depEdit.NAME = dep.NAME;
+                    depEdit.MODFIELD_AT = DateTime.Now;
+
                     dbDepEdit.SaveChanges();
 
                     return RedirectToAction("Index");
@@ -98,9 +101,9 @@ namespace foxcon.Controllers
         {
             try
             {
-                using (var dbDepDetalhes = new foxEntitSql())
+                using (var dbDepDetalhes = new foxEntitySql())
                 {
-                    Departamentos depDetalhes = dbDepDetalhes.Departamentos.Find(id);
+                    DEPARTAMENTOS depDetalhes = dbDepDetalhes.DEPARTAMENTOS.Find(id);
                     return View(depDetalhes);
                 }
             }
@@ -113,11 +116,11 @@ namespace foxcon.Controllers
 
         public ActionResult Delete(int id)
         {
-            using (var dbDepDelete = new foxEntitSql())
+            using (var dbDepDelete = new foxEntitySql())
             {
-                Departamentos depDelete = dbDepDelete.Departamentos.Find(id);
+                DEPARTAMENTOS depDelete = dbDepDelete.DEPARTAMENTOS.Find(id);
 
-                dbDepDelete.Departamentos.Remove(depDelete);
+                dbDepDelete.DEPARTAMENTOS.Remove(depDelete);
                 dbDepDelete.SaveChanges();
                 return RedirectToAction("Index");
             }

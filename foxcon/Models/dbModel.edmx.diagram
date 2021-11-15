@@ -5,9 +5,6 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="172ba31d29634217b1f25ab094a67439" Name="Diagram1">
-        <EntityTypeShape EntityType="foxconModel.Departamentos" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="foxconModel.Employees" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="foxconModel.FK_employee_departamentos" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

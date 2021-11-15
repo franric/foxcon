@@ -12,19 +12,19 @@ namespace foxcon.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Departamentos
+    public partial class DEPARTAMENTOS
     {
-        public Departamentos()
+        public DEPARTAMENTOS()
         {
-            this.Employees = new HashSet<Employees>();
+            this.EMPLOYEES = new HashSet<EMPLOYEES>();
         }
     
-        public int id { get; set; }
-        public string name { get; set; }
-        public string active { get; set; }
-        public System.DateTime created_at { get; set; }
-        public byte[] modifield_at { get; set; }
+        public decimal ID { get; set; }
+        public string NAME { get; set; }
+        public string ACTIVE { get; set; }
+        public System.DateTime CREATED_AT { get; set; }
+        public System.DateTime MODFIELD_AT { get; set; }
     
-        public virtual ICollection<Employees> Employees { get; set; }
+        public virtual ICollection<EMPLOYEES> EMPLOYEES { get; set; }
     }
 }

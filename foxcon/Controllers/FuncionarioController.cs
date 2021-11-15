@@ -12,30 +12,30 @@ namespace foxcon.Controllers
         // GET: Funcionario
         public ActionResult Index()
         {
-            using(var db = new foxEntitSql())
+            using(var db = new foxEntitySql())
             {
-                var list = from e in db.Employees
-                           join d in db.Departamentos on e.id_departamento equals d.id
+                var list = from e in db.EMPLOYEES
+                           join d in db.DEPARTAMENTOS on e.ID_DEPARTAMENTO equals d.ID
                            select new FuncionarioModel()
                            {
-                               id = e.id,
-                               name = e.name,
-                               nomeDepartamento = d.name,
-                               salary = e.salary,
-                               gender = e.gender,
-                               active = e.active,
-                               created_at = e.created_at,
+                               ID = e.ID,
+                               NAME = e.NAME,
+                               NOMEDEPARTAMENTO = d.NAME,
+                               SALARY = e.SALARY,
+                               GENDER = e.GENDER,
+                               ACTIVE = e.ACTIVE,
+                               MODFIELD_AT = e.MODFIELD_AT,
                            };
 
                 return View(list.ToList());
             }            
         }
 
-        public ActionResult ListaDepartamentos()
+        public ActionResult ListaDEPARTAMENTOS()
         {
-            using (var depLista = new foxEntitSql())
+            using (var depLista = new foxEntitySql())
             {
-                return PartialView(depLista.Departamentos.ToList());
+                return PartialView(depLista.DEPARTAMENTOS.ToList());
             }
         }
 
@@ -45,26 +45,27 @@ namespace foxcon.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Employees fun)
+        public ActionResult Create(EMPLOYEES fun)
         {
             if (!ModelState.IsValid)
                 return View();
 
             try
             {
-                using (var dbFunCreate = new foxEntitSql())
+                using (var dbFunCreate = new foxEntitySql())
                 {
-                    fun.created_at = DateTime.Now;
-                    fun.active = "A";
+                    fun.CREATED_AT = DateTime.Now;
+                    fun.MODFIELD_AT = DateTime.Now;
+                    fun.ACTIVE = "A";
 
-                    dbFunCreate.Employees.Add(fun);
+                    dbFunCreate.EMPLOYEES.Add(fun);
                     dbFunCreate.SaveChanges();
                     return RedirectToAction("Index");
                 }
             }
             catch (Exception e)
             {
-                ModelState.AddModelError("", "Erro ao tentar inserir o funcionário");
+                ModelState.AddModelError("", "Erro ao tentar inserir o funcionário: " + e);
                 return View();
             }
         }
@@ -73,11 +74,11 @@ namespace foxcon.Controllers
         {
             try
             {
-                using (var dbfunEdit = new foxEntitSql())
+                using (var dbfunEdit = new foxEntitySql())
                 {
-                    Employees funEdit = dbfunEdit.Employees.Find(id);
+                    EMPLOYEES funEdit = dbfunEdit.EMPLOYEES.Find(id);
 
-                    funEdit.salary = Convert.ToDecimal(funEdit.salary);
+                    funEdit.SALARY = Convert.ToDecimal(funEdit.SALARY);
 
                     return View(funEdit);
                 }
@@ -94,19 +95,20 @@ namespace foxcon.Controllers
         {
             try
             {
-                fun.salary = Convert.ToDecimal(fun.salary);
+                fun.SALARY = Convert.ToDecimal(fun.SALARY);
 
                 if (!ModelState.IsValid)
                     return View();
 
 
-                using (var dbFunEdit = new foxEntitSql())
+                using (var dbFunEdit = new foxEntitySql())
                 {
-                    Employees funEdit = dbFunEdit.Employees.Find(fun.id);
-                    funEdit.name = fun.name;
-                    funEdit.id_departamento = fun.id_departamento;
-                    funEdit.gender = fun.gender;
-                    funEdit.salary = fun.salary;
+                    EMPLOYEES funEdit = dbFunEdit.EMPLOYEES.Find(fun.ID);
+                    funEdit.NAME = fun.NAME;
+                    funEdit.ID_DEPARTAMENTO = fun.ID_DEPARTAMENTO;
+                    funEdit.GENDER = fun.GENDER;
+                    funEdit.SALARY = fun.SALARY;
+                    funEdit.MODFIELD_AT = DateTime.Now;
 
                     dbFunEdit.SaveChanges();
 
@@ -124,20 +126,20 @@ namespace foxcon.Controllers
         {
             try
             {
-                using (var db = new foxEntitSql())
+                using (var db = new foxEntitySql())
                 {
-                    var list = from e in db.Employees
-                               join d in db.Departamentos on e.id_departamento equals d.id
-                               where e.id == id
+                    var list = from e in db.EMPLOYEES
+                               join d in db.DEPARTAMENTOS on e.ID equals d.ID
+                               where e.ID == id
                                select new FuncionarioModel()
                                {
-                                   id = e.id,
-                                   name = e.name,
-                                   nomeDepartamento = d.name,
-                                   salary = e.salary,
-                                   gender = e.gender,
-                                   active = e.active,
-                                   created_at = e.created_at,
+                                   ID = e.ID,
+                                   NAME = e.NAME,
+                                   NOMEDEPARTAMENTO = d.NAME,
+                                   SALARY = e.SALARY,
+                                   GENDER = e.GENDER,
+                                   ACTIVE = e.ACTIVE,
+                                   MODFIELD_AT = e.MODFIELD_AT,
                                };
 
                     return View(list.FirstOrDefault());
@@ -152,11 +154,11 @@ namespace foxcon.Controllers
 
         public ActionResult Delete(int id)
         {
-            using (var dbFunDelete = new foxEntitSql())
+            using (var dbFunDelete = new foxEntitySql())
             {
-                Employees funDelete = dbFunDelete.Employees.Find(id);
+                EMPLOYEES funDelete = dbFunDelete.EMPLOYEES.Find(id);
 
-                dbFunDelete.Employees.Remove(funDelete);
+                dbFunDelete.EMPLOYEES.Remove(funDelete);
                 dbFunDelete.SaveChanges();
                 return RedirectToAction("Index");
             }

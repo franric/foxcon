@@ -1,4 +1,4 @@
-﻿@model foxcon.Models.Departamentos
+﻿@model foxcon.Models.DEPARTAMENTOS
 @{
     ViewBag.Title = "Editar Departamentos";
 }
@@ -39,12 +39,12 @@
                             <!-- /.card-header -->
                             <div class="card-body">
                                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                                @Html.HiddenFor(model => model.id)
+                                @Html.HiddenFor(model => model.ID)
 
                                 <div class="form-group">
-                                    @Html.LabelFor(model => model.name)
-                                    @Html.EditorFor(model => model.name, new { HtmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                                    @Html.LabelFor(model => model.NAME)
+                                    @Html.EditorFor(model => model.NAME, new { HtmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.NAME, "", new { @class = "text-danger" })
                                 </div>                                
                                 <!-- /.card-body -->
                             </div>

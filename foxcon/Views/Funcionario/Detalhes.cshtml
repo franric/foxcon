@@ -33,25 +33,25 @@
                             <div class="callout callout-danger">
 
                                 <p>
-                                    <strong>Nome: </strong>  @Html.DisplayFor(model => model.name)
+                                    <strong>Nome: </strong>  @Html.DisplayFor(model => model.NAME)
                                 </p>
                                 <p>
-                                    <strong>Departamento: </strong> @Html.DisplayFor(model => model.nomeDepartamento)
+                                    <strong>Departamento: </strong> @Html.DisplayFor(model => model.NOMEDEPARTAMENTO)
                                 </p>
                                 <p>
-                                    <strong>Sexo: </strong> @(Model.gender == "M" ? "MASCULINO" : "FEMININO")
+                                    <strong>Sexo: </strong> @(Model.GENDER == "M" ? "MASCULINO" : "FEMININO")
                                 </p>
                                 <p>
-                                    <strong>Salario: </strong> @Html.DisplayFor(model => model.salary)
+                                    <strong>Salario: </strong> @Html.DisplayFor(model => model.SALARY)
                                 </p>
                                 <p>
-                                    <strong>Status: </strong> @(Model.name == "A" ? "ATIVO" : "INATIVO")
+                                    <strong>Status: </strong> @(Model.NAME == "A" ? "ATIVO" : "INATIVO")
                                 </p>
                             </div>
                         </div>
                         <div class="card-footer">
                             <a href="@Url.Action("Index", "Funcionario")" class="btn flat btn-info">Voltar</a>
-                            <a href="@Url.Action("Editar", "Funcionario", new { id = Model.id })" class="btn flat btn-info">Editar</a>
+                            <a href="@Url.Action("Editar", "Funcionario", new { id = Model.ID })" class="btn flat btn-info">Editar</a>
                             
                         </div>
                     </div>

@@ -1,4 +1,4 @@
-﻿@model foxcon.Models.Departamentos
+﻿@model foxcon.Models.DEPARTAMENTOS
 
 @{
     ViewBag.Title = "Detalhes";
@@ -33,16 +33,16 @@
                             <div class="callout callout-danger">
 
                                 <p>
-                                    <strong>Departamento: </strong> @Html.DisplayFor(model => model.name)
+                                    <strong>Departamento: </strong> @Html.DisplayFor(model => model.NAME)
                                 </p>
                                 <p>
-                                    <strong>Status: </strong> @(Model.name == "A" ? "ATIVO" : "INATIVO")
+                                    <strong>Status: </strong> @(Model.ACTIVE == "A" ? "ATIVO" : "INATIVO")
                                 </p>
                             </div>
                         </div>
                         <div class="card-footer">
                             <a href="@Url.Action("Index", "Departamento")" class="btn flat btn-info">Voltar</a>
-                            <a href="@Url.Action("Editar", "Departamento", new { id = Model.id })" class="btn flat btn-info">Editar</a>
+                            <a href="@Url.Action("Editar", "Departamento", new { id = Model.ID })" class="btn flat btn-info">Editar</a>
                             
                         </div>
                     </div>

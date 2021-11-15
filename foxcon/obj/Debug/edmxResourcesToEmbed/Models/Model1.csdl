@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="DEPARTAMENTOS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="54" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ACTIVE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CREATED_AT" Type="DateTime" Precision="6" Nullable="false" />
+    <Property Name="MODFIELD_AT" Type="DateTime" Precision="6" Nullable="false" />
+    <NavigationProperty Name="EMPLOYEES" Relationship="Self.EMPLOYEES_FK1" FromRole="DEPARTAMENTOS" ToRole="EMPLOYEES" />
+  </EntityType>
+  <EntityType Name="EMPLOYEES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ID_DEPARTAMENTO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="104" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="GENDER" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SALARY" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="ACTIVE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CREATED_AT" Type="DateTime" Precision="6" Nullable="false" />
+    <Property Name="MODFIELD_AT" Type="DateTime" Precision="6" Nullable="false" />
+    <NavigationProperty Name="DEPARTAMENTOS" Relationship="Self.EMPLOYEES_FK1" FromRole="EMPLOYEES" ToRole="DEPARTAMENTOS" />
+  </EntityType>
+  <Association Name="EMPLOYEES_FK1">
+    <End Role="DEPARTAMENTOS" Type="Self.DEPARTAMENTOS" Multiplicity="1" />
+    <End Role="EMPLOYEES" Type="Self.EMPLOYEES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEPARTAMENTOS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EMPLOYEES">
+        <PropertyRef Name="ID_DEPARTAMENTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="foxEntitySql" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DEPARTAMENTOS" EntityType="Self.DEPARTAMENTOS" />
+    <EntitySet Name="EMPLOYEES" EntityType="Self.EMPLOYEES" />
+    <AssociationSet Name="EMPLOYEES_FK1" Association="Self.EMPLOYEES_FK1">
+      <End Role="DEPARTAMENTOS" EntitySet="DEPARTAMENTOS" />
+      <End Role="EMPLOYEES" EntitySet="EMPLOYEES" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

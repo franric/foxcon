@@ -1,4 +1,4 @@
-﻿@model foxcon.Models.Employees
+﻿@model foxcon.Models.EMPLOYEES
 
 @{
     ViewBag.Title = "EditarFuncionários";
@@ -41,29 +41,29 @@
                             <div class="card-body">
                                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                 <div class="form-group">
-                                    @Html.LabelFor(model => model.name)
-                                    @Html.EditorFor(model => model.name, new { HtmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                                    @Html.LabelFor(model => model.NAME)
+                                    @Html.EditorFor(model => model.NAME, new { HtmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.NAME, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
-                                    @Html.LabelFor(model => model.id_departamento)
+                                    @Html.LabelFor(model => model.ID_DEPARTAMENTO)
 
                                     @Html.Action("ListaDepartamentos", "Funcionario")
 
-                                    @Html.ValidationMessageFor(model => model.id_departamento, "", new { @class = "text-danger" })
+                                    @Html.ValidationMessageFor(model => model.ID_DEPARTAMENTO, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
-                                    @Html.LabelFor(model => model.gender)
-                                    <select name="gender" id="gender" class="form-control select2" style="width: 100%;">
+                                    @Html.LabelFor(model => model.GENDER)
+                                    <select name="GENDER" id="gender" class="form-control select2" style="width: 100%;">
 
                                         <option selected="selected" value="M">Masculino</option>
                                         <option value="F">Feminino</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    @Html.LabelFor(model => model.salary)
-                                    @Html.EditorFor(model => model.salary, new { HtmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.salary, "", new { @class = "text-danger" })
+                                    @Html.LabelFor(model => model.SALARY)
+                                    @Html.EditorFor(model => model.SALARY, new { HtmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.SALARY, "", new { @class = "text-danger" })
                                 </div>
                                 <!-- /.card-body -->
                             </div>

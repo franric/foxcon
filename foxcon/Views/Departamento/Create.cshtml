@@ -1,4 +1,4 @@
-﻿@model foxcon.Models.Departamentos
+﻿@model foxcon.Models.DEPARTAMENTOS
 @{
     ViewBag.Title = "Cadastrar Departamentos";
 }
@@ -38,11 +38,11 @@
                             @Html.AntiForgeryToken()
                             <!-- /.card-header -->
                             <div class="card-body">
-                                @Html.ValidationSummary(true, "", new { @class ="text-danger" })                                
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                 <div class="form-group">
-                                    @Html.LabelFor(model => model.name)
-                                    @Html.EditorFor(model => model.name, new { HtmlAttributes = new { @class = "form-control" } })                                    
-                                    @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                                    @Html.LabelFor(model => model.NAME)
+                                    @Html.EditorFor(model => model.NAME, new { HtmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.NAME, "", new { @class = "text-danger" })
                                 </div>
                                 <!-- /.card-body -->
                             </div>
@@ -58,3 +58,7 @@
 
 </div>
 <!-- /.content-wrapper -->
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+}

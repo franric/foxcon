@@ -9,29 +9,31 @@ namespace foxcon.Models
 {
     public class FuncionarioModel
     {
-        public int id { get; set; }
+        public decimal ID { get; set; }
         [Required]
         [Display(Name = "Departamento")]
-        public int id_departamento { get; set; }
+        public decimal ID_DEPARTAMENTO { get; set; }
         [Required]
         [Display(Name = "Nome do Funcionário")]
-        public string name { get; set; }
+        public string NAME { get; set; }
         [Required]
         [Display(Name = "Salário")]
         [DataType(DataType.Currency)]
         [Column(TypeName = "decimal(18, 2)")]
-        public decimal salary { get; set; }
+        public decimal SALARY { get; set; }
         [Required]
         [Display(Name = "Genero")]
-        public string gender { get; set; }        
+        public string GENDER { get; set; }        
         [Display(Name = "Status")]
-        public string active { get; set; }
-        public Nullable<System.DateTime> created_at { get; set; }
-        public string nomeDepartamento { get; set; }
+        public string ACTIVE { get; set; }
+        public Nullable<System.DateTime> CREATED_AT { get; set; }
+        public Nullable<System.DateTime> MODFIELD_AT { get; set; }
+
+        public string NOMEDEPARTAMENTO { get; set; }
     }
     
     [MetadataType(typeof(FuncionarioModel))]
-    public partial class Employees
+    public partial class EMPLOYEES
     {
 
     }

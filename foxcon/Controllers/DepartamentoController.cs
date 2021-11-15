@@ -17,6 +17,36 @@ namespace foxcon.Controllers
                 return View(depList.Departamentos.ToList());
             }
         }
-        
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Departamentos dep)
+        {
+            if (!ModelState.IsValid)
+                return View();
+
+            try
+            {
+                dep.active = "A";
+                dep.created_at = DateTime.Now;
+
+                using (var depCreate = new foxEntitSql())
+                {
+                    depCreate.Departamentos.Add(dep);
+                    depCreate.SaveChanges();
+
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception e)
+            {
+                ModelState.AddModelError("", "Erro ao inserir o departamento " + e.Message);
+                return View();
+            }
+        }
     }
 }

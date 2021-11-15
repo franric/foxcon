@@ -125,3 +125,4 @@ C:\Users\FRANCISCO-HOME\Documents\Dev\foxcon\foxcon\obj\Debug\foxcon.csproj.Core
 C:\Users\FRANCISCO-HOME\Documents\Dev\foxcon\foxcon\obj\Debug\foxcon.csproj.CopyComplete
 C:\Users\FRANCISCO-HOME\Documents\Dev\foxcon\foxcon\obj\Debug\foxcon.dll
 C:\Users\FRANCISCO-HOME\Documents\Dev\foxcon\foxcon\obj\Debug\foxcon.pdb
+C:\Users\FRANCISCO-HOME\Documents\Dev\foxcon\foxcon\obj\Debug\foxcon.csproj.AssemblyReference.cache

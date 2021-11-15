@@ -54,7 +54,7 @@
                             <tbody>
 
                                 @foreach (var fun in Model)
-                                { 
+                                {
                                     <tr>
                                         <td>@fun.name</td>
                                         <td>@fun.nomeDepartamento</td>
@@ -99,3 +99,50 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    <script>
+
+        $(function () {
+            $("#example1").DataTable({
+                "language": {
+                    "sColvis": "teste",
+                    "sEmptyTable": "Nenhum registro encontrado",
+                    "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+                    "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sInfoThousands": ".",
+                    "sLengthMenu": "Mostrar _MENU_",
+                    "sLoadingRecords": "Carregando...",
+                    "sProcessing": "Processando...",
+                    "sZeroRecords": "Nenhum registro encontrado",
+                    "sSearch": "Pesquisar",
+                    "oPaginate": {
+                        "sNext": "Próximo",
+                        "sPrevious": "Anterior",
+                        "sFirst": "Primeiro",
+                        "sLast": "Último"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Ordenar colunas de forma ascendente",
+                        "sSortDescending": ": Ordenar colunas de forma descendente"
+                    }
+
+                },
+                "pageLength": 10,
+                "lengthMenu": [
+                    [20, 50, 100, -1],
+                    [20, 50, 100, "All"]
+                ],
+                "responsive": true, "lengthChange": false, "autoWidth": false,
+                //"buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+                "buttons": ["excel"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        });
+    </script>
+
+}

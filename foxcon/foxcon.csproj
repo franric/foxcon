@@ -2286,6 +2286,8 @@
     <Content Include="Views\Departamento\Editar.cshtml" />
     <Content Include="Views\Departamento\Detalhes.cshtml" />
     <Content Include="Views\Funcionario\Index.cshtml" />
+    <Content Include="Views\Funcionario\Create.cshtml" />
+    <Content Include="Views\Funcionario\ListaDepartamentos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

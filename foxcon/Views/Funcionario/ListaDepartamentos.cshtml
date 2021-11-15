@@ -1,0 +1,10 @@
+﻿@model IEnumerable<foxcon.Models.Departamentos>
+
+
+<select class="form-control select2" name="id_departamento" id="id_departamento" style="width: 100%;">
+    @foreach (var item in Model)
+    {
+        <option value="@item.id">@item.name</option>
+
+    }
+</select> 

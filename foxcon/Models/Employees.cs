@@ -24,5 +24,7 @@ namespace foxcon.Models
         public byte[] modified_at { get; set; }
     
         public virtual Departamentos Departamentos { get; set; }
+
+        public string nomeDepartamento { get; set; }
     }
 }

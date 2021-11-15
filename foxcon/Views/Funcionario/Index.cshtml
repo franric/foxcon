@@ -1,4 +1,4 @@
-﻿@model IEnumerable<foxcon.Models.Employees>
+﻿@model List<foxcon.Models.FuncionarioModel>
 
 @{
     ViewBag.Title = "Foxcon";
@@ -36,7 +36,7 @@
             <div class="col-12">
                 <div class="card card-default">
                     <div class="card-header">
-                        <h3 class="card-title"><i class="nav-icon fas fa-building"></i>&ensp;Lista de Funcionarios</h3>
+                        <h3 class="card-title"><i class="nav-icon fas fa-user-tie"></i>&ensp;Lista de Funcionarios</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -57,7 +57,7 @@
                                 { 
                                     <tr>
                                         <td>@fun.name</td>
-                                        <td>@fun.id_departamento</td>
+                                        <td>@fun.nomeDepartamento</td>
                                         <td>@(fun.gender == "M" ? "MASCULINO" : "FEMININO")</td>
                                         <td>@fun.created_at</td>
                                         <td>@(fun.active == "A" ? "ATIVO" : "INATIVO")</td>

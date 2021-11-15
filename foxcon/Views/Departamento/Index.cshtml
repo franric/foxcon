@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "FoxCon - Departamentos";
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Departamento</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <div class="box-header with-border">
+                            <a class="btn btn-info btn-flat pull-right" href="@Url.Action("Create", "Departamentos")">
+                                <i class="fa fa-plus"></i>&nbsp;
+                                Cadastrar
+                            </a>
+                        </div>
+                    </ol>
+                </div>
+                <!-- /.col -->
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <!-- Default box -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-default">
+                    <div class="card-header">
+                        <h3 class="card-title"><i class="nav-icon fas fa-building"></i>&ensp;Lista de Departamentos</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped projects">
+                            <thead class="table_blue">
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Modificado em</th>
+                                    <th>Status</th>
+                                    <th>Ação</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td>Pedro Paulo</td>
+                                    <td>11/11/2021 21:15</td>
+                                    <td>Ativo</td>
+
+                                    <td class="project-actions text-right">
+                                        <a class="btn btn-info btn-sm"
+                                           href="#"
+                                           title="Editar Registro">
+                                            <i class="fas fa-pencil-alt">
+                                            </i>
+                                            Editar
+                                        </a>
+                                        <a class="btn btn-danger btn-sm"
+                                           href="#"
+                                           title="Deletar Registro">
+                                            <i class="fas fa-trash">
+                                            </i>
+                                            Deletar
+                                        </a>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

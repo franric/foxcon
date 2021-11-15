@@ -127,6 +127,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DepartamentoController.cs" />
+    <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -146,6 +147,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dbModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\FuncionarioModel.cs" />
     <Compile Include="Models\DepartamentoModel.cs" />
     <Compile Include="Models\Departamentos.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
@@ -2283,6 +2285,7 @@
     <Content Include="Views\Departamento\Create.cshtml" />
     <Content Include="Views\Departamento\Editar.cshtml" />
     <Content Include="Views\Departamento\Detalhes.cshtml" />
+    <Content Include="Views\Funcionario\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

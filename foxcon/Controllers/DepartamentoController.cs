@@ -111,5 +111,17 @@ namespace foxcon.Controllers
             }
         }
 
+        public ActionResult Delete(int id)
+        {
+            using (var dbDepDelete = new foxEntitSql())
+            {
+                Departamentos depDelete = dbDepDelete.Departamentos.Find(id);
+
+                dbDepDelete.Departamentos.Remove(depDelete);
+                dbDepDelete.SaveChanges();
+                return RedirectToAction("Index");
+            }
+        }
+
     }
 }

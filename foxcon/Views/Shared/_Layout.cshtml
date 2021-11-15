@@ -96,11 +96,14 @@
     <!-- ./wrapper -->
     @Scripts.Render("~/Content/js")
     @Scripts.Render("~/Content/datatable")
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>
 
 <script>
+
+
 
     $(function () {
         $("#example1").DataTable({

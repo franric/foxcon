@@ -150,6 +150,16 @@ namespace foxcon.Controllers
             }
         }
 
+        public ActionResult Delete(int id)
+        {
+            using (var dbFunDelete = new foxEntitSql())
+            {
+                Employees funDelete = dbFunDelete.Employees.Find(id);
 
+                dbFunDelete.Employees.Remove(funDelete);
+                dbFunDelete.SaveChanges();
+                return RedirectToAction("Index");
+            }
+        }
     }
 }

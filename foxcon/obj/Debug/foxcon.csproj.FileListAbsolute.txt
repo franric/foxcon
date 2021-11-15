@@ -91,6 +91,7 @@ C:\Users\FRANCISCO-HOME\Documents\Dev\foxcon\foxcon\bin\roslyn\vbc.rsp
 C:\Users\FRANCISCO-HOME\Documents\Dev\foxcon\foxcon\bin\roslyn\VBCSCompiler.exe
 C:\Users\FRANCISCO-HOME\Documents\Dev\foxcon\foxcon\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\FRANCISCO-HOME\Documents\Dev\foxcon\foxcon\bin\Antlr3.Runtime.dll
+C:\Users\FRANCISCO-HOME\Documents\Dev\foxcon\foxcon\bin\EntityFramework.dll
 C:\Users\FRANCISCO-HOME\Documents\Dev\foxcon\foxcon\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\FRANCISCO-HOME\Documents\Dev\foxcon\foxcon\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\FRANCISCO-HOME\Documents\Dev\foxcon\foxcon\bin\Newtonsoft.Json.dll
@@ -102,6 +103,7 @@ C:\Users\FRANCISCO-HOME\Documents\Dev\foxcon\foxcon\bin\System.Web.WebPages.Depl
 C:\Users\FRANCISCO-HOME\Documents\Dev\foxcon\foxcon\bin\System.Web.WebPages.dll
 C:\Users\FRANCISCO-HOME\Documents\Dev\foxcon\foxcon\bin\System.Web.WebPages.Razor.dll
 C:\Users\FRANCISCO-HOME\Documents\Dev\foxcon\foxcon\bin\WebGrease.dll
+C:\Users\FRANCISCO-HOME\Documents\Dev\foxcon\foxcon\bin\EntityFramework.xml
 C:\Users\FRANCISCO-HOME\Documents\Dev\foxcon\foxcon\bin\System.Web.Helpers.xml
 C:\Users\FRANCISCO-HOME\Documents\Dev\foxcon\foxcon\bin\System.Web.Mvc.xml
 C:\Users\FRANCISCO-HOME\Documents\Dev\foxcon\foxcon\bin\System.Web.Optimization.xml
@@ -119,7 +121,6 @@ C:\Users\FRANCISCO-HOME\Documents\Dev\foxcon\foxcon\bin\pt-br\System.Web.Razor.r
 C:\Users\FRANCISCO-HOME\Documents\Dev\foxcon\foxcon\bin\pt-br\System.Web.WebPages.resources.dll
 C:\Users\FRANCISCO-HOME\Documents\Dev\foxcon\foxcon\bin\pt-br\System.Web.WebPages.Deployment.resources.dll
 C:\Users\FRANCISCO-HOME\Documents\Dev\foxcon\foxcon\bin\pt-br\System.Web.WebPages.Razor.resources.dll
-C:\Users\FRANCISCO-HOME\Documents\Dev\foxcon\foxcon\obj\Debug\foxcon.csproj.AssemblyReference.cache
 C:\Users\FRANCISCO-HOME\Documents\Dev\foxcon\foxcon\obj\Debug\foxcon.csproj.CoreCompileInputs.cache
 C:\Users\FRANCISCO-HOME\Documents\Dev\foxcon\foxcon\obj\Debug\foxcon.csproj.CopyComplete
 C:\Users\FRANCISCO-HOME\Documents\Dev\foxcon\foxcon\obj\Debug\foxcon.dll

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using foxcon.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,11 @@ namespace foxcon.Controllers
         // GET: Departamento
         public ActionResult Index()
         {
-            return View();
+            using (foxEntitSql depList = new foxEntitSql())
+            {
+                return View(depList.Departamentos.ToList());
+            }
         }
+        
     }
 }

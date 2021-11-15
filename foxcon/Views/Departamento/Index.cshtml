@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<foxcon.Models.Departamentos>
+
+@{
     ViewBag.Title = "FoxCon - Departamentos";
 }
 
@@ -42,36 +44,59 @@
                             <thead class="table_blue">
                                 <tr>
                                     <th>Nome</th>
-                                    <th>Modificado em</th>
+                                    <th>Criado em</th>
                                     <th>Status</th>
                                     <th>Ação</th>
                                 </tr>
                             </thead>
                             <tbody>
-
+                                @foreach (var dep in Model)
+                                {
                                 <tr>
-                                    <td>Pedro Paulo</td>
-                                    <td>11/11/2021 21:15</td>
-                                    <td>Ativo</td>
+                                    <td>@dep.name</td>
 
-                                    <td class="project-actions text-right">
-                                        <a class="btn btn-info btn-sm"
-                                           href="#"
-                                           title="Editar Registro">
-                                            <i class="fas fa-pencil-alt">
-                                            </i>
-                                            Editar
-                                        </a>
-                                        <a class="btn btn-danger btn-sm"
-                                           href="#"
-                                           title="Deletar Registro">
-                                            <i class="fas fa-trash">
-                                            </i>
-                                            Deletar
-                                        </a>
-                                    </td>
+                                    <td>@dep.created_at</td>
+
+                                    @if (dep.active == "A")
+                                    {
+                                        <td>
+                                            ATIVO
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td>
+                                            INATIVO
+                                        </td>
+                                    }
+
+                                <td class="project-actions text-right">
+                                    <a class="btn btn-info btn-sm"
+                                       href="@Url.Action("Editar", "Editrar", new { id = dep.id })"
+                                       title="Editar Registro">
+                                        <i class="fas fa-pencil-alt">
+                                        </i>
+                                        Editar
+                                    </a>
+                                    <a class="btn btn-warning btn-sm"
+                                       href="@Url.Action("Detalhes", "Detalhes", new { id = dep.id })"
+                                       title="Detalhes do Registro">
+                                        <i class="fas fa-eye">
+                                        </i>
+                                        Detalhes
+                                    </a>
+                                    <a class="btn btn-danger btn-sm"
+                                       href="@Url.Action("Delete", "Delete", new { id = dep.id })"
+                                       title="Deletar Registro">
+                                        <i class="fas fa-trash">
+                                        </i>
+                                        Deletar
+                                    </a>
+                                </td>
 
                                 </tr>
+                                }
+
                             </tbody>
                         </table>
                     </div>

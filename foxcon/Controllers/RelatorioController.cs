@@ -1,4 +1,5 @@
-﻿using System;
+﻿using foxcon.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,13 @@ namespace foxcon.Controllers
         // GET: Relatorio
         public ActionResult TotalSalario()
         {
-            return View();
+            string sql = @"select sum(salary) as salary, d.name as nomeDepartamento from Employees e left join Departamentos d on e.id_departamento = d.id group by d.name";
+            
+            using (var rel = new foxEntitSql())
+            {
+                var data = rel.Database.SqlQuery<FuncionarioModel>(sql).ToList();
+                return View(data);
+            }            
         }
     }
 }

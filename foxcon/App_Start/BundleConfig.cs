@@ -11,10 +11,12 @@ namespace foxcon
             bundles.Add(new ScriptBundle("~/Content/js").Include(
                        "~/Content/lte/plugins/jquery/jquery.min.js",
                        "~/Content/lte/plugins/bootstrap/js/bootstrap.bundle.min.js",
-                       "~/Content/lte/plugins/chart.js/Chart.min.js",
+                       
                        "~/Content/lte/dist/js/adminlte.min.js",
-                       "~/Content/lte/dist/js/adminlte.min.js",
-                       "~/Content/lte/dist/js/demo.js"));
+                       "~/Content/lte/dist/js/adminlte.min.js"));
+
+            bundles.Add(new ScriptBundle("~/Content/charts").Include(
+                "~/Content/lte/plugins/chart.js/Chart.min.js"));
 
             bundles.Add(new ScriptBundle("~/Content/datatable").Include(
                        "~/Content/lte/plugins/datatables/jquery.dataTables.min.js",

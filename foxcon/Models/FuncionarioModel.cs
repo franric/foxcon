@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -17,6 +18,8 @@ namespace foxcon.Models
         public string name { get; set; }
         [Required]
         [Display(Name = "Salário")]
+        [DataType(DataType.Currency)]
+        [Column(TypeName = "decimal(18, 2)")]
         public decimal salary { get; set; }
         [Required]
         [Display(Name = "Genero")]

@@ -61,7 +61,7 @@
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.salary)
-                            @Html.EditorFor(model => model.salary, new { HtmlAttributes = new { @class = "form-control", @type = "number" } })
+                            @Html.EditorFor(model => model.salary, new { HtmlAttributes = new { @class = "form-control"} })
                             @Html.ValidationMessageFor(model => model.salary, "", new { @class = "text-danger" })
                         </div>
                         <!-- /.card-body -->

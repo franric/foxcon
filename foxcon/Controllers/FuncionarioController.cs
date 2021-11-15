@@ -68,5 +68,58 @@ namespace foxcon.Controllers
                 return View();
             }
         }
+
+        public ActionResult Editar(int id)
+        {
+            try
+            {
+                using (var dbfunEdit = new foxEntitSql())
+                {
+                    Employees funEdit = dbfunEdit.Employees.Find(id);
+
+                    funEdit.salary = Convert.ToDecimal(funEdit.salary);
+
+                    return View(funEdit);
+                }
+            }
+            catch (Exception e)
+            {
+                ModelState.AddModelError("", "Error ao tentar editar o funcionário" + e.Message);
+                return View();
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Editar(FuncionarioModel fun)
+        {
+            try
+            {
+                fun.salary = Convert.ToDecimal(fun.salary);
+
+                if (!ModelState.IsValid)
+                    return View();
+
+
+                using (var dbFunEdit = new foxEntitSql())
+                {
+                    Employees funEdit = dbFunEdit.Employees.Find(fun.id);
+                    funEdit.name = fun.name;
+                    funEdit.id_departamento = fun.id_departamento;
+                    funEdit.gender = fun.gender;
+                    funEdit.salary = fun.salary;
+
+                    dbFunEdit.SaveChanges();
+
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception e)
+            {
+                ModelState.AddModelError("", "Error ao tentar editar o departameto " + e);
+                return View();
+            }
+        }
+
+
     }
 }

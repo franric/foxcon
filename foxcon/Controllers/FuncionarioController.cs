@@ -120,6 +120,36 @@ namespace foxcon.Controllers
             }
         }
 
+        public ActionResult Detalhes(int id)
+        {
+            try
+            {
+                using (var db = new foxEntitSql())
+                {
+                    var list = from e in db.Employees
+                               join d in db.Departamentos on e.id_departamento equals d.id
+                               where e.id == id
+                               select new FuncionarioModel()
+                               {
+                                   id = e.id,
+                                   name = e.name,
+                                   nomeDepartamento = d.name,
+                                   salary = e.salary,
+                                   gender = e.gender,
+                                   active = e.active,
+                                   created_at = e.created_at,
+                               };
+
+                    return View(list.FirstOrDefault());
+                }
+            }
+            catch (Exception e)
+            {
+                ModelState.AddModelError("", "Erro ao buscar os detalhes do departamento " + e.Message);
+                return View();
+            }
+        }
+
 
     }
 }

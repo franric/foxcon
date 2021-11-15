@@ -2289,6 +2289,7 @@
     <Content Include="Views\Funcionario\Create.cshtml" />
     <Content Include="Views\Funcionario\ListaDepartamentos.cshtml" />
     <Content Include="Views\Funcionario\Editar.cshtml" />
+    <Content Include="Views\Funcionario\Detalhes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

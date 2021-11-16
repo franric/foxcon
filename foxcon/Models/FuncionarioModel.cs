@@ -22,7 +22,7 @@ namespace foxcon.Models
         [Column(TypeName = "decimal(18, 2)")]
         public decimal SALARY { get; set; }
         [Required]
-        [Display(Name = "Genero")]
+        [Display(Name = "Sexo")]
         public string GENDER { get; set; }        
         [Display(Name = "Status")]
         public string ACTIVE { get; set; }

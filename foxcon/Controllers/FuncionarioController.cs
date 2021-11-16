@@ -31,8 +31,8 @@ namespace foxcon.Controllers
             }            
         }
 
-        public ActionResult ListaDEPARTAMENTOS()
-        {
+        public ActionResult ListaDepartamentos()
+        {            
             using (var depLista = new foxEntitySql())
             {
                 return PartialView(depLista.DEPARTAMENTOS.ToList());
@@ -126,10 +126,10 @@ namespace foxcon.Controllers
         {
             try
             {
-                using (var db = new foxEntitySql())
+                using (foxEntitySql db = new foxEntitySql())
                 {
                     var list = from e in db.EMPLOYEES
-                               join d in db.DEPARTAMENTOS on e.ID equals d.ID
+                               join d in db.DEPARTAMENTOS on e.ID_DEPARTAMENTO equals d.ID
                                where e.ID == id
                                select new FuncionarioModel()
                                {
@@ -137,8 +137,8 @@ namespace foxcon.Controllers
                                    NAME = e.NAME,
                                    NOMEDEPARTAMENTO = d.NAME,
                                    SALARY = e.SALARY,
-                                   GENDER = e.GENDER,
-                                   ACTIVE = e.ACTIVE,
+                                   GENDER = (e.GENDER == "M" ? "MASCULINO" : "FEMININO"),
+                                   ACTIVE = (e.ACTIVE == "A" ? "ATIVO" : "INATIVO"),
                                    MODFIELD_AT = e.MODFIELD_AT,
                                };
 

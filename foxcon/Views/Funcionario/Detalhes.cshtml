@@ -39,13 +39,13 @@
                                     <strong>Departamento: </strong> @Html.DisplayFor(model => model.NOMEDEPARTAMENTO)
                                 </p>
                                 <p>
-                                    <strong>Sexo: </strong> @(Model.GENDER == "M" ? "MASCULINO" : "FEMININO")
+                                    <strong>Sexo: </strong>@Html.DisplayFor(model => model.GENDER)
                                 </p>
                                 <p>
                                     <strong>Salario: </strong> @Html.DisplayFor(model => model.SALARY)
                                 </p>
                                 <p>
-                                    <strong>Status: </strong> @(Model.NAME == "A" ? "ATIVO" : "INATIVO")
+                                    <strong>Status: </strong> @Html.DisplayFor(model => model.ACTIVE)
                                 </p>
                             </div>
                         </div>

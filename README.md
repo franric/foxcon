@@ -14,7 +14,7 @@
  Projeto Desenvolvido no padrão MVC;
 
 1 - Baixe o projeto do repositorio do GitHub
-	git clone https://github.com/franric/foxcon.git
+	git clone -> https://github.com/franric/foxcon.git
 
 2 - Acesse a basta [data_base] na raiz do projeto
 

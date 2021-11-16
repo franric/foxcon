@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DEPARTAMENTOS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NAME" Type="varchar2" MaxLength="54" Nullable="false" />
+    <Property Name="ACTIVE" Type="varchar2" MaxLength="1" Nullable="false" />
+    <Property Name="CREATED_AT" Type="timestamp" Precision="6" Nullable="false" />
+    <Property Name="MODFIELD_AT" Type="timestamp" Precision="6" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EMPLOYEES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ID_DEPARTAMENTO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NAME" Type="varchar2" MaxLength="104" Nullable="false" />
+    <Property Name="GENDER" Type="varchar2" MaxLength="1" Nullable="false" />
+    <Property Name="SALARY" Type="number" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="ACTIVE" Type="varchar2" MaxLength="1" Nullable="false" />
+    <Property Name="CREATED_AT" Type="timestamp" Precision="6" Nullable="false" />
+    <Property Name="MODFIELD_AT" Type="timestamp" Precision="6" Nullable="false" />
+  </EntityType>
+  <Association Name="EMPLOYEES_FK1">
+    <End Role="DEPARTAMENTOS" Type="Self.DEPARTAMENTOS" Multiplicity="1" />
+    <End Role="EMPLOYEES" Type="Self.EMPLOYEES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEPARTAMENTOS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EMPLOYEES">
+        <PropertyRef Name="ID_DEPARTAMENTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="DEPARTAMENTOS" EntityType="Self.DEPARTAMENTOS" Schema="SYSTEM" store:Type="Tables" />
+    <EntitySet Name="EMPLOYEES" EntityType="Self.EMPLOYEES" Schema="SYSTEM" store:Type="Tables" />
+    <AssociationSet Name="EMPLOYEES_FK1" Association="Self.EMPLOYEES_FK1">
+      <End Role="DEPARTAMENTOS" EntitySet="DEPARTAMENTOS" />
+      <End Role="EMPLOYEES" EntitySet="EMPLOYEES" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,119 @@
+﻿@model List<foxcon.Models.FuncionarioModel>
+
+@{
+    ViewBag.Title = "Relatorio de Salários";
+}
+
+<div class="content-wrapper">
+
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Relátorios</h1>
+                </div>
+                <!-- /.col -->
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <!-- general form elements -->
+                    <div class="card card-default">
+                        <div class="card-header">
+                            <h3 class="card-title"> <i class="fas fa-chart-bar"></i> Total de Salário por Departamento</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <div class="card-body">
+                            <div class="chart">
+                                <canvas id="barChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                            </div>
+                        </div>                        
+                    </div>
+                    <!-- /.card
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+                    <!-- /.row -->
+                </div><!-- /.container-fluid -->
+    </section>
+</div>
+
+@{
+    var dadosCharts01 = Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model));
+}
+
+@section Scripts {
+    @Scripts.Render("~/Content/charts")
+
+
+    <script>
+
+
+    const dataChart = [];
+
+    var dd = @dadosCharts01;
+
+
+    for (var i = 0; i < dd.length; i++) {
+
+        v = 16 + i * 75;
+        color = "rgba(" + v + ",16,255,0.76)";
+
+        dataChart.push( 
+            {
+                "label": dd[i]["NOMEDEPARTAMENTO"],
+                "backgroundColor": color,
+                "borderColor": "rgba(60,141,188,0.8)",
+                "pointRadius": false,
+                "pointColor": "#3b8bba",
+                "pointStrokeColor": "rgba(60,141,188,1)",
+                "pointHighlightFill": "#fff",
+                "pointHighlightStroke": "rgba(60,141,188,1)",
+                "data": [dd[i]["SALARY"]],
+            })
+    }        
+
+    var areaChartData = {
+        labels: ['Salário'],
+        datasets: dataChart,
+    }
+
+    $(function () {
+        /* ChartJS
+         * -------
+         * Here we will create a few charts using ChartJS
+         */
+
+
+        //-------------
+        //- BAR CHART -
+        //-------------
+        var barChartCanvas = $('#barChart').get(0).getContext('2d')
+        var barChartData = $.extend(true, {}, areaChartData)
+        var temp0 = areaChartData.datasets[0]
+        var temp1 = areaChartData.datasets[1]
+        barChartData.datasets[0] = temp1
+        barChartData.datasets[1] = temp0
+
+        var barChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            datasetFill: false
+        }
+
+        new Chart(barChartCanvas, {
+            type: 'bar',
+            data: barChartData,
+            options: barChartOptions
+        })
+
+
+    })
+    </script>
+}

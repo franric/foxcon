@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DEPARTAMENTOS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NAME" Type="varchar2" MaxLength="54" Nullable="false" />
+          <Property Name="ACTIVE" Type="varchar2" MaxLength="1" Nullable="false" />
+          <Property Name="CREATED_AT" Type="timestamp" Precision="6" Nullable="false" />
+          <Property Name="MODFIELD_AT" Type="timestamp" Precision="6" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EMPLOYEES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_DEPARTAMENTO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NAME" Type="varchar2" MaxLength="104" Nullable="false" />
+          <Property Name="GENDER" Type="varchar2" MaxLength="1" Nullable="false" />
+          <Property Name="SALARY" Type="number" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="ACTIVE" Type="varchar2" MaxLength="1" Nullable="false" />
+          <Property Name="CREATED_AT" Type="timestamp" Precision="6" Nullable="false" />
+          <Property Name="MODFIELD_AT" Type="timestamp" Precision="6" Nullable="false" />
+        </EntityType>
+        <Association Name="EMPLOYEES_FK1">
+          <End Role="DEPARTAMENTOS" Type="Self.DEPARTAMENTOS" Multiplicity="1" />
+          <End Role="EMPLOYEES" Type="Self.EMPLOYEES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTAMENTOS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EMPLOYEES">
+              <PropertyRef Name="ID_DEPARTAMENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="DEPARTAMENTOS" EntityType="Self.DEPARTAMENTOS" Schema="SYSTEM" store:Type="Tables" />
+          <EntitySet Name="EMPLOYEES" EntityType="Self.EMPLOYEES" Schema="SYSTEM" store:Type="Tables" />
+          <AssociationSet Name="EMPLOYEES_FK1" Association="Self.EMPLOYEES_FK1">
+            <End Role="DEPARTAMENTOS" EntitySet="DEPARTAMENTOS" />
+            <End Role="EMPLOYEES" EntitySet="EMPLOYEES" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DEPARTAMENTOS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="54" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ACTIVE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CREATED_AT" Type="DateTime" Precision="6" Nullable="false" />
+          <Property Name="MODFIELD_AT" Type="DateTime" Precision="6" Nullable="false" />
+          <NavigationProperty Name="EMPLOYEES" Relationship="Self.EMPLOYEES_FK1" FromRole="DEPARTAMENTOS" ToRole="EMPLOYEES" />
+        </EntityType>
+        <EntityType Name="EMPLOYEES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_DEPARTAMENTO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="104" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GENDER" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SALARY" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="ACTIVE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CREATED_AT" Type="DateTime" Precision="6" Nullable="false" />
+          <Property Name="MODFIELD_AT" Type="DateTime" Precision="6" Nullable="false" />
+          <NavigationProperty Name="DEPARTAMENTOS" Relationship="Self.EMPLOYEES_FK1" FromRole="EMPLOYEES" ToRole="DEPARTAMENTOS" />
+        </EntityType>
+        <Association Name="EMPLOYEES_FK1">
+          <End Role="DEPARTAMENTOS" Type="Self.DEPARTAMENTOS" Multiplicity="1" />
+          <End Role="EMPLOYEES" Type="Self.EMPLOYEES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTAMENTOS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EMPLOYEES">
+              <PropertyRef Name="ID_DEPARTAMENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="foxEntitySql" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DEPARTAMENTOS" EntityType="Self.DEPARTAMENTOS" />
+          <EntitySet Name="EMPLOYEES" EntityType="Self.EMPLOYEES" />
+          <AssociationSet Name="EMPLOYEES_FK1" Association="Self.EMPLOYEES_FK1">
+            <End Role="DEPARTAMENTOS" EntitySet="DEPARTAMENTOS" />
+            <End Role="EMPLOYEES" EntitySet="EMPLOYEES" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="foxEntitySql">
+          <EntitySetMapping Name="DEPARTAMENTOS">
+            <EntityTypeMapping TypeName="Model.DEPARTAMENTOS">
+              <MappingFragment StoreEntitySet="DEPARTAMENTOS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="CREATED_AT" ColumnName="CREATED_AT" />
+                <ScalarProperty Name="MODFIELD_AT" ColumnName="MODFIELD_AT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPLOYEES">
+            <EntityTypeMapping TypeName="Model.EMPLOYEES">
+              <MappingFragment StoreEntitySet="EMPLOYEES">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_DEPARTAMENTO" ColumnName="ID_DEPARTAMENTO" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+                <ScalarProperty Name="SALARY" ColumnName="SALARY" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="CREATED_AT" ColumnName="CREATED_AT" />
+                <ScalarProperty Name="MODFIELD_AT" ColumnName="MODFIELD_AT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
